@@ -1,27 +1,63 @@
-# AngloadApp
+# Angload
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+This is a simple project to manage angular-material spinner between routes navigation or ajax requests.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+first install angload into your project:
 
-## Code scaffolding
+`npm instal --save angload`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+next register angload module into your main module:
 
-## Build
+> ```javascript
+> import { AngLoadModule } from "angload";
+>
+> @NgModule({
+>   imports: [/* your other modules*/ AngLoadModule]
+> })
+> export class YourModule {}
+> ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+now you're ready to use angload component
 
-## Running unit tests
+```html
+<ang-load></ang-load>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+angload component default uses material progress spinner but if you want to use your own custom component, follow these steps.
 
-## Running end-to-end tests
+register your custom component on entryComponents:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```javascript
+import { YourCustomSpinnerComponent } from "YourCustomSpinnerComponent";
 
-## Further help
+@NgModule({
+  /* some other code here */
+  entryComponents: [YourCustomSpinnerComponent]
+})
+export class AppModule {}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+and declare angload component passing your custom compoment name as customComponentName propertie.
+
+```html
+<ang-load customComponentName="YourCustomSpinnerComponent"></ang-load>
+```
+
+to manage angload just import AngLoadService and use start or stop methods;
+
+```javascript
+ import { AngLoadService } from "angload/services";
+
+ export class ExampleComponent {
+    constructor(private angLoadService: AngLoadService){
+
+        //to start
+        this.angLoadService.start();
+
+        //to stop
+        this.angLoadService.stop();
+    }
+ }
+```

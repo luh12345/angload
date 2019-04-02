@@ -1,6 +1,17 @@
 {
-  "name": "angload-app",
-  "version": "0.0.0",
+  "name": "angload",
+  "description": "Simple project with a simple spinner loading component manager",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luh12345/angload"
+  },
+  "license": "MIT",
+  "author": {
+    "email": "luhdev.bsb@gmail.com",
+    "name": "Luciano Henrique"
+  },
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +20,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.11",
     "@angular/cdk": "^7.3.6",

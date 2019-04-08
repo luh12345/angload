@@ -39,7 +39,7 @@ import { YourCustomSpinnerComponent } from "YourCustomSpinnerComponent";
 export class AppModule {}
 ```
 
-and declare angload component passing your custom compoment name as customComponentName propertie.
+and declare angload component passing your custom compoment name as customComponentName property.
 
 ```html
 <ang-load customComponentName="YourCustomSpinnerComponent"></ang-load>
